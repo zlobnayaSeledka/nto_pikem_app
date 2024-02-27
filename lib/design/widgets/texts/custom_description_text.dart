@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pikem_nto/design/app_theme.dart';
 
-class CustomDescriptionTitleText extends StatelessWidget {
+import '../../app_theme.dart';
+
+
+class CustomDescriptionText extends StatelessWidget {
   final String text;
   final double? size;
-  const CustomDescriptionTitleText({Key? key, required this.text, this.size}) : super(key: key);
+  const CustomDescriptionText({Key? key, required this.text, this.size}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +15,7 @@ class CustomDescriptionTitleText extends StatelessWidget {
       style: TextStyle(
         color: CustomAppTheme.descriptionTextColor,
         fontSize: size,
-        fontWeight: FontWeight.bold,
-        fontFamily: CustomAppTheme.mainFontBold,
-        decoration: TextDecoration.none,
+        decoration: TextDecoration.none
       ),
     );
   }

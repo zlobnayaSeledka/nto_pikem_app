@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pikem_nto/admin/pages/admin_home.dart';
+import 'package:pikem_nto/admin/pages/admin_home_page.dart';
 import 'package:pikem_nto/design/widgets/buttons/filled_button.dart';
 import 'package:pikem_nto/design/widgets/custom_app_bar.dart';
 import 'package:pikem_nto/design/widgets/custom_text_field.dart';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pikem_nto/admin/pages/admin_home_page.dart';
 import 'package:pikem_nto/authorization_page.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AuthorizationPage(),
+      home: const AdminHomePage(),
     );
   }
 }
