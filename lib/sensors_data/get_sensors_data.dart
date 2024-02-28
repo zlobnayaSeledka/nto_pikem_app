@@ -2,8 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pikem_nto/main.dart';
 
-String api = '192.168.43.254:3333';
-
 class SensorsRequests{
   static getData()async{
     var postUri = Uri.parse('http://$api/base/sensors'); 

@@ -5,27 +5,19 @@ import 'package:pikem_nto/design/widgets/texts/custom_title_text.dart';
 import '../design/app_theme.dart';
 import '../design/widgets/custom_box_with_shadow.dart';
 import '../design/widgets/texts/custom_middle_text.dart';
+import 'calls_controller.dart';
 
-class DoorsControllerWidget extends StatelessWidget {
-  final bool door1;
-  final bool door2;
-  final bool door3;
-  final Function on1;
-  final Function on2;
-  final Function on3;
-  final Function off1;
-  final Function off2;
-  final Function off3;
-  const DoorsControllerWidget({super.key, 
-    required this.door1, 
-    required this.door2, 
-    required this.door3, 
-    required this.on1,
-    required this.on2,
-    required this.on3,
-    required this.off1,
-    required this.off2,
-    required this.off3
+class CallsListControllerWidget extends StatelessWidget {
+  final String name;
+  final Function onChange1;
+  final Function onChange2;
+  final Function onChange3;
+  const CallsListControllerWidget({
+    super.key,
+    required this.name,
+    required this.onChange1,
+    required this.onChange2,
+    required this.onChange3
   });
 
   @override
@@ -38,21 +30,21 @@ class DoorsControllerWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: CustomTitleText(
-              text: 'Двери', 
+              text: name, 
               size: 17,
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: ControllerWidget(onOn: on1, onOff: off1, name: "Подъезд №1"),
+            child: CallsControllerWidget(onChange: onChange1, name: "Подъезд №1"),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal:10.0),
-            child: ControllerWidget(onOn: on2, onOff: off2, name: "Подъезд №2"),
+            child: CallsControllerWidget(onChange: onChange2, name: "Подъезд №2"),
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: ControllerWidget(onOn: on3, onOff: off3, name: "Подъезд №3"),
+            child: CallsControllerWidget(onChange: onChange3, name: "Подъезд №3"),
           ),
         ],
       )

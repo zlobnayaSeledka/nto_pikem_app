@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pikem_nto/admin/pages/admin_login_page.dart';
 import 'package:pikem_nto/design/widgets/buttons/filled_button.dart';
 import 'package:pikem_nto/design/widgets/texts/custom_title_text.dart';
+import 'package:pikem_nto/roomer/roomer_home_page.dart';
 
 class AuthorizationPage extends StatelessWidget {
   const AuthorizationPage({super.key});
@@ -37,9 +38,10 @@ class AuthorizationPage extends StatelessWidget {
                 height: 40,
                 width: 400,
                 text: 'Жилец',
-                onTap: (){}
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const RoomerHomePage()));
+                }
               ),
-
             ],
           ),
         ),

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pikem_nto/control/controller_widget.dart';
+import 'package:pikem_nto/control/controllers_requests.dart';
 import 'package:pikem_nto/control/doors_controller_widget.dart';
 import 'package:pikem_nto/design/widgets/texts/custom_middle_text.dart';
 import 'package:pikem_nto/design/widgets/texts/custom_title_text.dart';
 
 import '../design/app_theme.dart';
 import '../design/widgets/custom_box_with_shadow.dart';
+import '../main.dart';
 
 class ControllersList extends StatefulWidget {
   const ControllersList({super.key});
@@ -15,14 +17,7 @@ class ControllersList extends StatefulWidget {
 }
 
 class _ControllersListState extends State<ControllersList> {
-  bool fireFighting = false;
-  bool gasProtection = false;
-  bool pump = false;
-  bool light = false;
-  bool door1 = false;
-  bool door2 = false;
-  bool door3 = false;
-  List<bool> doors = [false, false, false]; 
+  
   @override
   Widget build(BuildContext context) {
     return CustomBoxWithShadow(
@@ -44,42 +39,42 @@ class _ControllersListState extends State<ControllersList> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ControllerWidget(
-                      mode: fireFighting, 
                       name: "Пожаротушение",
-                      onChange: (){
-                        setState(() {
-                          fireFighting = !fireFighting;
-                        });
+                      onOn: (){
+                        ControllersRequests.sendCommand('fire', 1, true);
+                      },
+                      onOff: (){
+                        ControllersRequests.sendCommand('fire', 1, false);
                       }
                     ),
                     const SizedBox(height: 10),
                     ControllerWidget(
-                      mode: gasProtection, 
                       name: "Газозащита",
-                      onChange: (){
-                        setState(() {
-                          gasProtection = !gasProtection;
-                        });
+                      onOn: (){
+                        ControllersRequests.sendCommand('gas_leak',1, true);
+                      },
+                      onOff: (){
+                        ControllersRequests.sendCommand('gas_leak',1, false);
                       }
                     ),
                     const SizedBox(height: 10),
                     ControllerWidget(
-                      mode: light, 
                       name: "Освещение",
-                      onChange: (){
-                        setState(() {
-                          light = !light;
-                        });
+                      onOn: (){
+                        ControllersRequests.sendCommand('street',1, true);
+                      },
+                      onOff: (){
+                        ControllersRequests.sendCommand('street',1, false);
                       }
                     ),
                     const SizedBox(height: 10),
                     ControllerWidget(
-                      mode: pump, 
                       name: "Насос",
-                      onChange: (){
-                        setState(() {
-                          pump = !pump;
-                        });
+                      onOn: (){
+                        ControllersRequests.sendCommand('pump',1, true);
+                      },
+                      onOff: (){
+                        ControllersRequests.sendCommand('pump',1, false);
                       }
                     ),
                   ],
@@ -89,20 +84,25 @@ class _ControllersListState extends State<ControllersList> {
                       door1: door1, 
                       door2: door2, 
                       door3: door3, 
-                      onChange1: (){
-                        setState(() {
-                          door1 = !door1;
-                        });
-                      }, 
-                      onChange2: (){
-                        setState(() {
-                          door2 = !door2;
-                        });
-                      }, 
-                      onChange3: (){
-                        setState(() {
-                          door3 = !door3;
-                        });
+                      on1: (){
+                        ControllersRequests.sendCommand('door',1, true);
+                      },
+                      off1: (){
+                        ControllersRequests.sendCommand('door',1, false);
+                      },
+                      
+                      on2: (){
+                        ControllersRequests.sendCommand('door',2, true);
+                      },
+                      off2: (){
+                        ControllersRequests.sendCommand('door',2, false);
+                      },
+
+                      on3: (){
+                        ControllersRequests.sendCommand('door',3, true);
+                      },
+                      off3: (){
+                        ControllersRequests.sendCommand('door',3, false);
                       }
                     )
               ],
