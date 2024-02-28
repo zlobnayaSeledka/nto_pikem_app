@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pikem_nto/control/controllers_list.dart';
 import 'package:pikem_nto/design/widgets/custom_app_bar.dart';
 import 'package:pikem_nto/sensors_data/sensors_data_list.dart';
 import '../../notifications/notifications_list.dart';
@@ -24,7 +25,11 @@ class _AdminHomePageState extends State<AdminHomePage> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: SensorsDataList()
-              )
+              ), 
+              Padding(
+                padding: EdgeInsets.all(20),
+                child: ControllersList()
+              ),
             ],
           ),
         )

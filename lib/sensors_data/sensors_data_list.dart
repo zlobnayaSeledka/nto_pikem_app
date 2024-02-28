@@ -18,6 +18,9 @@ class _SensorsDataListState extends State<SensorsDataList> {
   bool s1 = false;
   bool s2 = false;
   bool s3 = false;
+  bool tap1 = true;
+  bool tap2 = true;
+  bool tap3 = true;
   @override
   Widget build(BuildContext context) {
     return CustomBoxWithShadow(
@@ -34,15 +37,25 @@ class _SensorsDataListState extends State<SensorsDataList> {
             List sound = data['sound'] ?? [-1, -1, -1];
             List gas = data['gas'] ?? [-1, -1, -1];
             List fire = data['fire'] ?? [-1, -1, -1];
-            if (!s1){
-              s1 = data['soundNotifications'][0];
+            if (tap1){
+              if (s1 != data['soundNotifications'][0]){
+                s1 = data['soundNotifications'][0];
+                tap1 = false;
+              }
             }
-            if (!s2){
-              s2 = data['soundNotifications'][1];
+            if (tap2){
+              if (s2 != data['soundNotifications'][1]){
+                s2 = data['soundNotifications'][1];
+                tap2 = false;
+              }
+            } 
+            if (tap3){
+              if (s3 != data['soundNotifications'][2]){
+                s3 = data['soundNotifications'][2];
+                tap3 = false;
+              }
             }
-            if (!s3){
-              s3 = data['soundNotifications'][2];
-            }
+            print("$s1, $s2, $s3");
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children:  [ 
@@ -69,6 +82,7 @@ class _SensorsDataListState extends State<SensorsDataList> {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       FlatDataWidget(
                         name: "Подъезд №1", 
@@ -77,7 +91,8 @@ class _SensorsDataListState extends State<SensorsDataList> {
                         fireData:fire[0].toString(), fireSafety: fire[0] < 4.0,
                         onSoundAlert: (){
                           setState(() {
-                            s1 = false;
+                            tap1 = true;
+                            print("a$s1, $s2, $s3");
                           });
                         },
                       ),
@@ -89,7 +104,8 @@ class _SensorsDataListState extends State<SensorsDataList> {
                         fireData:fire[1].toString(), fireSafety: fire[1] < 4.0,
                         onSoundAlert: (){
                           setState(() {
-                            s2 = false;
+                            tap2 = true;
+                            print("a$s1, $s2, $s3");
                           });
                         },
                       ),
@@ -101,13 +117,15 @@ class _SensorsDataListState extends State<SensorsDataList> {
                         fireData:fire[2].toString(), fireSafety: fire[2] < 4.0,
                         onSoundAlert: (){
                           setState(() {
-                            s3 = false;
+                            tap3 = true;
+                            print("a$s1, $s2, $s3");
                           });
                         },
                       ),
                     ],
                   ),
-                )
+                ),
+                SizedBox(height: 10)
               ],
             );
           }

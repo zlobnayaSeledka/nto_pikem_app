@@ -20,7 +20,6 @@ class NotificationsRequests{
     List<int> sounds = [0, 0, 0];
     for (int i = 0; i < result.length; i++){
       DateTime date = DateTime.fromMillisecondsSinceEpoch(result[i]['timestamp']*1000);
-
       String time = '${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}';
       String type = '';
       int flat = result[i]['FlatNum'];
@@ -46,8 +45,9 @@ class NotificationsRequests{
         notifications.add({'type':type, 'time': time});
       }
     }
-    print(notifications);
+    // print(notifications);
     soundsNotifications = sounds;
+    // soundsNotifications = [2,0,0];
     // List<Map> notifications = [{"type": "В подъезде 1 пожар!!!", "time":"12:04"}, {"type": "Началось землетрясение!!!", "time": "12:04"}, {"type": "В подъезде 1 пожар!!!", "time":"12:04"}, {"type": "Началось землетрясение!!!", "time": "12:04"}, {"type": "В подъезде 1 пожар!!!", "time":"12:04"}, {"type": "ssssssssние!!!", "time": "12:04"}];
     return notifications;
   }

@@ -15,6 +15,7 @@ class SensorsRequests{
     if (response.statusCode == 200){
       result = json.decode(response.body);
     }
+    // result['sound'][0] = 120;
     result['soundNotifications'] = [false,false,false];
     for (int i = 0; i < 3; i ++){
       if (soundsNotificationsWas[i] != soundsNotifications[i]){
