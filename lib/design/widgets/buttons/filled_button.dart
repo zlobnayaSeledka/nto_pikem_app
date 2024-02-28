@@ -7,7 +7,9 @@ class CustomFilledButton extends StatelessWidget {
   final String text;
   final Function onTap;
   final bool? circular;
-  const CustomFilledButton({Key? key, required this.text, this.height, this.width, required this.onTap, this.circular}) : super(key: key);
+  final Color? color;
+  final double? textSize;
+  const CustomFilledButton({Key? key, required this.text,this.textSize, this.color, this.height, this.width, required this.onTap, this.circular}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class CustomFilledButton extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          color: CustomAppTheme.mainColor,
+          color: color==null?CustomAppTheme.mainColor:color!,
           borderRadius: BorderRadius.circular(radius),
           boxShadow: [CustomAppTheme.mainShadow]
         ),
@@ -36,7 +38,7 @@ class CustomFilledButton extends StatelessWidget {
                 color: Colors.white,
                 fontWeight: FontWeight.w700,
                 fontFamily: CustomAppTheme.mainFont,
-                fontSize: 20
+                fontSize: textSize==null?20:textSize!
               ),
             ),
           ),

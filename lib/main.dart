@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pikem_nto/admin/pages/admin_home_page.dart';
 import 'package:pikem_nto/authorization_page.dart';
 
+List<int> soundsNotifications = [0,0,0];
+List<int> soundsNotificationsWas = [0,0,0];
+
 void main() {
   runApp(const MyApp());
 }

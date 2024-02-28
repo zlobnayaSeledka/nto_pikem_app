@@ -31,7 +31,7 @@ class _NotificationsListState extends State<NotificationsList> {
                   const SizedBox(width: 10),
                   const CustomTitleText(
                     text: 'Уведомления', 
-                    size: 20,
+                    size: 25,
                   ),
                   GestureDetector(
                     child: Icon(open?Icons.arrow_drop_up_sharp:Icons.arrow_drop_down_sharp),
@@ -50,7 +50,7 @@ class _NotificationsListState extends State<NotificationsList> {
                   if (snapshot.hasData){
                     if (snapshot.data.length != 0){
                       return SizedBox(
-                        height: (open?MediaQuery.of(context).size.height:200)-65,
+                        height: (open?MediaQuery.of(context).size.height:200)-70,
                         child: ListView.builder(
                           reverse: true,
                           itemCount: snapshot.data.length,

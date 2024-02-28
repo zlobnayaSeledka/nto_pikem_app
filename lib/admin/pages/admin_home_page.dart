@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pikem_nto/design/widgets/custom_app_bar.dart';
-import 'package:pikem_nto/design/widgets/custom_box_with_shadow.dart';
-import 'package:pikem_nto/design/widgets/texts/custom_title_text.dart';
-
+import 'package:pikem_nto/sensors_data/sensors_data_list.dart';
 import '../../notifications/notifications_list.dart';
 
 class AdminHomePage extends StatefulWidget {
@@ -20,22 +18,13 @@ class _AdminHomePageState extends State<AdminHomePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
-            children: [
-              const NotificationsList(), 
-              const SizedBox(height: 20),
+            children: const [
+              NotificationsList(), 
+              SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: CustomBoxWithShadow(
-                  width: MediaQuery.of(context).size.width,
-                  child: Column(
-                    children: const [
-                      CustomTitleText(text: 'Данные датчиков', size: 30), 
-              
-                    ],
-                  )
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: SensorsDataList()
               )
-              
             ],
           ),
         )

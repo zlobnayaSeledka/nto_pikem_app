@@ -6,16 +6,18 @@ class CustomBoxWithShadow extends StatelessWidget {
   final double? height;
   final double? width;
   final int? animation;
+  final Color? shadowColor;
   final Widget child;
-  const CustomBoxWithShadow({Key? key, this.width, this.height, this.animation, required this.child}) : super(key: key);
+  const CustomBoxWithShadow({Key? key, this.width, this.height, this.animation, this.shadowColor, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    BoxShadow s = shadowColor==null?CustomAppTheme.mainShadow:BoxShadow(color: shadowColor!.withOpacity(0.2), spreadRadius:2.0, blurRadius: 5.0); //
     return animation==null?Container(
       height: height,
       width: width,
       decoration: BoxDecoration(
-        boxShadow: [CustomAppTheme.mainShadow],
+        boxShadow: [s],
         color: CustomAppTheme.backgroundColor,
         borderRadius: BorderRadius.circular(CustomAppTheme.mainBorderRadius)
       ),
@@ -26,7 +28,7 @@ class CustomBoxWithShadow extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        boxShadow: [CustomAppTheme.mainShadow],
+        boxShadow: [s],
         color: CustomAppTheme.backgroundColor,
         borderRadius: BorderRadius.circular(CustomAppTheme.mainBorderRadius)
       ),
