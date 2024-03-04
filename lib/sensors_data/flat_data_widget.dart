@@ -16,6 +16,8 @@ class FlatDataWidget extends StatelessWidget {
   final bool soundNotification;
   final bool fireSafety;
   final Function onSoundAlert;
+  final bool soundTap;
+  final Function onSoundTap;
   const FlatDataWidget({
     super.key,
     required this.soundNotification, 
@@ -26,7 +28,9 @@ class FlatDataWidget extends StatelessWidget {
     required this.gasData, 
     required this.fireSafety,
     required this.fireData,
-    required this.onSoundAlert
+    required this.onSoundAlert,
+    required this.onSoundTap,
+    required this.soundTap
   });
   @override
   Widget build(BuildContext context) {
@@ -66,6 +70,21 @@ class FlatDataWidget extends StatelessWidget {
                             textSize: 15,
                             onTap: (){
                               onSoundAlert();
+                            }, 
+                            color: const Color.fromARGB(255, 248, 99, 0),
+                          ),
+                        ) 
+                      ),
+                      SizedBox(height: 10),
+                      Visibility(
+                        visible: soundTap,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top:10.0),
+                          child: CustomFilledButton(
+                            text: 'Убрать предупрежение', 
+                            textSize: 15,
+                            onTap: (){
+                              onSoundTap();
                             }, 
                             color: const Color.fromARGB(255, 248, 99, 0),
                           ),

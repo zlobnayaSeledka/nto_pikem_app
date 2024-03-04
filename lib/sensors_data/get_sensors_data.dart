@@ -21,6 +21,8 @@ class SensorsRequests{
       }
     }
     soundsNotificationsWas = soundsNotifications;
+    print('was$soundsNotificationsWas');
+    print('res${result['soundNotifications']}');
     return result;
   }
 }

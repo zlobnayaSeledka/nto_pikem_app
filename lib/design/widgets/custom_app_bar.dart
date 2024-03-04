@@ -21,6 +21,7 @@ class _CustomAppBarState extends State<CustomAppBar>{
           padding: const EdgeInsets.all(10.0),
           child: CustomBackButton(
             onTap: (){
+              Navigator.pop(context);
               Navigator.pushAndRemoveUntil(
                 context, 
                 MaterialPageRoute(builder: ((context) => const AuthorizationPage())), 

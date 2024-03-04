@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:pikem_nto/control/controllers_list.dart';
 import 'package:pikem_nto/design/widgets/custom_app_bar.dart';
@@ -12,6 +14,7 @@ class AdminHomePage extends StatefulWidget {
 }
 
 class _AdminHomePageState extends State<AdminHomePage> {
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +23,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              NotificationsList(), 
+              NotificationsList(admin: true), 
               SizedBox(height: 10),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),

@@ -40,6 +40,7 @@ class _ControllersListState extends State<ControllersList> {
                   children: [
                     ControllerWidget(
                       name: "Пожаротушение",
+                      img: 'assets/images/fire.gif',
                       onOn: (){
                         ControllersRequests.sendCommand('fire', 1, true);
                       },
@@ -50,6 +51,7 @@ class _ControllersListState extends State<ControllersList> {
                     const SizedBox(height: 10),
                     ControllerWidget(
                       name: "Газозащита",
+                      img: 'assets/images/gas.gif',
                       onOn: (){
                         ControllersRequests.sendCommand('gas_leak',1, true);
                       },
@@ -60,6 +62,7 @@ class _ControllersListState extends State<ControllersList> {
                     const SizedBox(height: 10),
                     ControllerWidget(
                       name: "Освещение",
+                      img: 'assets/images/light.gif',
                       onOn: (){
                         ControllersRequests.sendCommand('street',1, true);
                       },
@@ -70,6 +73,7 @@ class _ControllersListState extends State<ControllersList> {
                     const SizedBox(height: 10),
                     ControllerWidget(
                       name: "Насос",
+                      img: 'assets/images/pump.gif',
                       onOn: (){
                         ControllersRequests.sendCommand('pump',1, true);
                       },

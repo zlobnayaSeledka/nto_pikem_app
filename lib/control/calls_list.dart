@@ -12,12 +12,14 @@ class CallsListControllerWidget extends StatelessWidget {
   final Function onChange1;
   final Function onChange2;
   final Function onChange3;
+  final String imgPath;
   const CallsListControllerWidget({
     super.key,
     required this.name,
     required this.onChange1,
     required this.onChange2,
-    required this.onChange3
+    required this.onChange3,
+    required this.imgPath
   });
 
   @override
@@ -27,12 +29,19 @@ class CallsListControllerWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: CustomTitleText(
-              text: name, 
-              size: 17,
-            ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: CustomTitleText(
+                  text: name, 
+                  size: 17,
+                ),
+              ),
+              Image.asset(imgPath,
+                    width: 50,
+                    height: 50,)
+            ],
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),

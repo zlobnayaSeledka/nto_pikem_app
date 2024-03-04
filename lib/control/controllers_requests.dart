@@ -22,4 +22,23 @@ class ControllersRequests{
       print(response.statusCode);
     }
   }
+
+  static sendCommandRobot(String action, int flatNum)async{
+    var postUri = Uri.parse('http://$api/robot/ctl');
+    var response = await http.post(
+      postUri, 
+      headers:  {"Content-Type": "application/json; charset=UTF-8", "accept": "application/json"},
+      body: jsonEncode({
+        "action": action,
+        "flat_num": flatNum,
+      })
+    );
+    if (response.statusCode == 200){
+      print('happy');
+    }
+    else{
+      print('error');
+      print(response.statusCode);
+    }
+  }
 }

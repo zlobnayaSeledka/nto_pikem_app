@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pikem_nto/control/calls_list.dart';
 import 'package:pikem_nto/control/doors_controller_widget.dart';
-
+import 'dart:async';
 import '../control/controller_widget.dart';
 import '../control/controllers_requests.dart';
 import '../design/widgets/custom_app_bar.dart';
@@ -16,6 +16,7 @@ class RoomerHomePage extends StatefulWidget {
 }
 
 class _RoomerHomePageState extends State<RoomerHomePage> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +27,7 @@ class _RoomerHomePageState extends State<RoomerHomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const NotificationsList(),
+              const NotificationsList(admin: false),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ControllerWidget(
@@ -70,10 +71,17 @@ class _RoomerHomePageState extends State<RoomerHomePage> {
                     ),
                     const SizedBox(width: 20),
                     CallsListControllerWidget(
+                      imgPath: 'assets/images/doctor.gif',
                       name: 'Вызов скорой', 
-                      onChange1: (){}, 
-                      onChange2: (){}, 
-                      onChange3: (){}
+                      onChange1: (){
+                        ControllersRequests.sendCommandRobot('med', 1);
+                      }, 
+                      onChange2: (){
+                        ControllersRequests.sendCommandRobot('med', 2);
+                      }, 
+                      onChange3: (){
+                        ControllersRequests.sendCommandRobot('med', 3);
+                      }
                     ),
                     
                   ],
@@ -82,10 +90,17 @@ class _RoomerHomePageState extends State<RoomerHomePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: CallsListControllerWidget(
+                        imgPath: 'assets/images/snow.gif',
                         name: 'Уборка снега', 
-                        onChange1: (){}, 
-                        onChange2: (){}, 
-                        onChange3: (){}
+                        onChange1: (){
+                          ControllersRequests.sendCommandRobot('snow', 1);
+                        }, 
+                        onChange2: (){
+                          ControllersRequests.sendCommandRobot('snow', 2);
+                        }, 
+                        onChange3: (){
+                          ControllersRequests.sendCommandRobot('snow', 3);
+                        }
                       ),
               ),
             ],

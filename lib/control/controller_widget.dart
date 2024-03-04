@@ -9,7 +9,8 @@ class ControllerWidget extends StatelessWidget {
   final Function onOn;
   final Function onOff;
   final String name;
-  const ControllerWidget({super.key, required this.onOn, required this.onOff, required this.name});
+  final String? img;
+  const ControllerWidget({super.key, required this.onOn, required this.onOff, required this.name, this.img});
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +21,18 @@ class ControllerWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            CustomMidleText(
-              text: name, 
-              size: 15
+            Row(
+              children: [
+                CustomMidleText(
+                  text: name, 
+                  size: 15
+                ),
+                img != null? Image.asset(
+                  img!,
+                  width: 50,
+                  height: 50,
+                ):const SizedBox(height: 50, width: 50)
+              ],
             ),
             Row(
               children: [

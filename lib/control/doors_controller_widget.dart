@@ -35,13 +35,24 @@ class DoorsControllerWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: CustomTitleText(
-              text: 'Двери', 
-              size: 17,
-            ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: CustomTitleText(
+                  text: 'Двери', 
+                  size: 17,
+                ),
+                
+              ),
+              Image.asset(
+            'assets/images/door.gif',
+            width: 50,
+            height: 50,
           ),
+            ],
+          ),
+          
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: ControllerWidget(onOn: on1, onOff: off1, name: "Подъезд №1"),
